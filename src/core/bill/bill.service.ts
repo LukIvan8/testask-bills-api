@@ -16,7 +16,4 @@ export class BillService {
   create(bill: CreateBillDto){
     return this.billRepository.save(bill);
   }
-  Hello(): string {
-    return 'Hello World!';
-  }
 }
