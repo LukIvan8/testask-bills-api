@@ -1,4 +1,4 @@
-import { Injectable } from '@nestjs/common';
+import { Injectable } from "@nestjs/common";
 import { InjectRepository } from "@nestjs/typeorm";
 import { Repository } from "typeorm";
 import { BillEntity } from "./bill.entity";
@@ -6,14 +6,15 @@ import { CreateBillDto } from "./dto/create-bill.dto";
 
 @Injectable()
 export class BillService {
-  constructor(@InjectRepository(BillEntity) private readonly billRepository:Repository<BillEntity>) {
+  constructor(@InjectRepository(BillEntity) private readonly billRepository: Repository<BillEntity>) {
   }
 
-  listAll(){
+  listAll() {
     return this.billRepository.find();
   }
 
-  create(bill: CreateBillDto){
-    return this.billRepository.save(bill);
+  create(bill: CreateBillDto) {
+    const billToSave = { ...bill, creationTime: new Date() };
+    return this.billRepository.save(billToSave);
   }
 }
