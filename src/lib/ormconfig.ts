@@ -3,12 +3,11 @@ import { BillEntity } from "../core/bill/bill.entity";
 
 export const typeOrmConfig: TypeOrmModuleOptions = {
   type: 'postgres',
-  host: 'containers-us-west-178.railway.app',
-  port: 7283,
-  // Где хранить секретные данные?
+  host: 'localhost',
+  port: 49155,
   username: 'postgres',
-  password: 'BKoRz233RRlaybQgIJV2',
-  database: 'railway',
+  password: 'postgrespw',
+  database: 'postgres',
   entities: [BillEntity],
   synchronize: true,
 };

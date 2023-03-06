@@ -1,11 +1,12 @@
 import { IsNotEmpty, IsNumber } from "class-validator";
+import { PROVIDER_TYPE, TRANSCTION_TYPE } from "../enums/create-bill.enum";
 
 export class CreateBillDto{
   @IsNotEmpty()
-  transactionType:string;
+  transactionType:TRANSCTION_TYPE;
 
   @IsNotEmpty()
-  provider:string;
+  provider:PROVIDER_TYPE;
 
   @IsNotEmpty()
   @IsNumber()
